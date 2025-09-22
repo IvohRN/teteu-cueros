@@ -55,7 +55,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.75);
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     max-width: 700px;
@@ -127,7 +127,7 @@ body {
 
 /* Formulario de personalización */
 .form-container {
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.75);
     padding: 2em 2.5em;
     border-radius: 12px;
     max-width: 480px;
