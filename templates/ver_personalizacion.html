@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Tu {{ personalizacion.producto }} Personalizada - Teteu Cueros{% endblock %}
+
+{% block content %}
+<div class="personalizacion-container">
+    <h2>Tu {{ personalizacion.producto }} Personalizada</h2>
+    
+    <img src="{{ img_path }}" 
+         alt="{{ personalizacion.producto }} personalizada" 
+         class="personalizacion-img">
+    
+    <div class="personalizacion-details">
+        <h3>Detalles de tu personalización:</h3>
+        <ul>
+            <li><strong>Modelo:</strong> {{ personalizacion.producto }}</li>
+            <li><strong>Color:</strong> {{ personalizacion.color|title }}</li>
+            <li><strong>Herrajes:</strong> {{ personalizacion.herrajes|title }}</li>
+        </ul>
+        
+        <div class="action-buttons">
+            <a href="{{ url_for('pagina_principal') }}" class="copy-btn">
+                Crear Otra Personalización
+            </a>
+            <button onclick="compartirPersonalizacion()" class="copy-btn" style="background: #2e7d32;">
+                Compartir
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function compartirPersonalizacion() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Mi {{ personalizacion.producto }} Personalizada',
+            text: 'Mira mi {{ personalizacion.producto }} personalizada en Teteu Cueros',
+            url: window.location.href
+        });
+    } else {
+        // Fallback: copiar URL al portapapeles
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('¡URL copiada al portapapeles!');
+        });
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Panel de Administración - Teteu Cueros{% endblock %}
+
+{% block content %}
+<div class="personalizacion-container">
+    <h2>Panel de Administración</h2>
+    <p>Total de personalizaciones: {{ personalizaciones|length }}</p>
+    
+    <div class="admin-actions">
+        <a href="{{ url_for('admin_limpiar') }}" class="copy-btn" style="background: #d32f2f;">
+            Limpiar Expiradas
+        </a>
+        <a href="{{ url_for('pagina_principal') }}" class="copy-btn">
+            Volver al Inicio
+        </a>
+    </div>
+    
+    {% if personalizaciones %}
+    <div class="personalizaciones-list">
+        <h3>Personalizaciones Activas</h3>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 1em;">
+            <thead>
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5em; border: 1px solid #ddd;">ID</th>
+                    <th style="padding: 0.5em; border: 1px solid #ddd;">Producto</th>
+                    <th style="padding: 0.5em; border: 1px solid #ddd;">Color</th>
+                    <th style="padding: 0.5em; border: 1px solid #ddd;">Herrajes</th>
+                    <th style="padding: 0.5em; border: 1px solid #ddd;">Fecha</th>
+                    <th style="padding: 0.5em; border: 1px solid #ddd;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in personalizaciones %}
+                <tr>
+                    <td style="padding: 0.5em; border: 1px solid #ddd; font-family: monospace;">{{ p.id[:8] }}...</td>
+                    <td style="padding: 0.5em; border: 1px solid #ddd;">{{ p.producto }}</td>
+                    <td style="padding: 0.5em; border: 1px solid #ddd;">{{ p.color|title }}</td>
+                    <td style="padding: 0.5em; border: 1px solid #ddd;">{{ p.herrajes|title }}</td>
+                    <td style="padding: 0.5em; border: 1px solid #ddd;">{{ p.fecha_creacion.strftime('%d/%m/%Y %H:%M') }}</td>
+                    <td style="padding: 0.5em; border: 1px solid #ddd;">
+                        <a href="{{ url_for('ver_personalizacion', id=p.id) }}" 
+                           style="color: #4B2E19; text-decoration: none;">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No hay personalizaciones registradas.</p>
+    {% endif %}
+</div>
+{% endblock %}

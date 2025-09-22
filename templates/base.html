@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Teteu Cueros - Carteras de Cuero Personalizadas{% endblock %}</title>
+    <meta name="description" content="{% block description %}Personaliza tu cartera de cuero con Teteu Cueros. Elige color, herrajes y crea tu diseño único.{% endblock %}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <a href="{{ url_for('pagina_principal') }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Teteu Cueros" class="navbar-logo">
+            <span class="navbar-title">Teteu Cueros</span>
+        </a>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

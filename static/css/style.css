@@ -1,0 +1,314 @@
+/* Estilos principales para Teteu Cueros */
+
+body {
+    background-image: url('/static/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 56px;
+    background: #4B2E19;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding-left: 2em;
+    letter-spacing: 1px;
+}
+
+.navbar-logo {
+    height: 38px;
+    width: auto;
+    margin-right: 18px;
+}
+
+.navbar-title {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+    padding: 2em 1em;
+}
+
+/* Contenedores de modelos */
+.modelo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.92);
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 700px;
+    width: 95vw;
+    padding: 2em;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modelo-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.modelo-img {
+    max-width: 220px;
+    max-height: 260px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-right: 32px;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+.modelo-img:hover {
+    transform: scale(1.05);
+}
+
+.modelo-info {
+    flex: 1;
+}
+
+.modelo-info h2 {
+    margin-top: 0;
+    color: #4B2E19;
+    font-size: 1.8em;
+}
+
+.modelo-info p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Botones */
+.copy-btn {
+    padding: 0.7em 1.5em;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: none;
+    background: #4B2E19;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.copy-btn:hover {
+    background: #6B3E29;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Formulario de personalización */
+.form-container {
+    background: rgba(255,255,255,0.92);
+    padding: 2em 2.5em;
+    border-radius: 12px;
+    max-width: 480px;
+    width: 95vw;
+    margin: 2em auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container h2 {
+    color: #4B2E19;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.selector-row {
+    display: flex;
+    gap: 2.5em;
+    justify-content: center;
+    margin-bottom: 1.5em;
+}
+
+.selector-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selector-col label {
+    font-weight: 600;
+    color: #4B2E19;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+}
+
+.selector-col select {
+    padding: 0.5em;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    background: white;
+    color: #4B2E19;
+    transition: border-color 0.3s ease;
+}
+
+.selector-col select:focus {
+    outline: none;
+    border-color: #4B2E19;
+}
+
+.color-preview, .herrajes-preview {
+    width: 208px;
+    height: 208px;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    object-fit: cover;
+    background: #eee;
+    margin-top: 0.5em;
+    transition: transform 0.3s ease;
+}
+
+.color-preview:hover, .herrajes-preview:hover {
+    transform: scale(1.02);
+}
+
+/* Vista de personalización */
+.personalizacion-container {
+    background: rgba(255,255,255,0.95);
+    padding: 2em;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 2em auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.personalizacion-container h2 {
+    color: #4B2E19;
+    margin-bottom: 1em;
+}
+
+.personalizacion-container img {
+    max-width: 320px;
+    max-height: 340px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.personalizacion-container ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.personalizacion-container li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1em;
+}
+
+.personalizacion-container li:last-child {
+    border-bottom: none;
+}
+
+/* Mensajes de error */
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 1em;
+    border-radius: 6px;
+    margin: 1em 0;
+    border-left: 4px solid #c62828;
+}
+
+.success-message {
+    background: #e8f5e8;
+    color: #2e7d32;
+    padding: 1em;
+    border-radius: 6px;
+    margin: 1em 0;
+    border-left: 4px solid #2e7d32;
+}
+
+/* Loading spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #4B2E19;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 700px) {
+    .modelo-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0.5em;
+    }
+    
+    .modelo-img {
+        margin-right: 0;
+        margin-bottom: 1em;
+    }
+    
+    .selector-row {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .navbar {
+        padding-left: 1em;
+        font-size: 1.1em;
+    }
+    
+    .main-content {
+        padding: 1em 0.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1em;
+    }
+    
+    .color-preview, .herrajes-preview {
+        width: 150px;
+        height: 150px;
+    }
+}

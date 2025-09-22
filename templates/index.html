@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Teteu Cueros - Carteras de Cuero Personalizadas{% endblock %}
+
+{% block content %}
+<div class="modelo-container">
+    <img src="{{ url_for('static', filename='modelo1.jpg') }}" 
+         alt="Modelo 1: Cartera Clásica" 
+         class="modelo-img" 
+         onerror="this.style.display='none'">
+    <div class="modelo-info">
+        <h2>Modelo 1: Cartera Clásica</h2>
+        <p><strong>Medidas:</strong> 30cm de alto x 46cm de ancho x 17cm de profundidad</p>
+        <p><strong>Características:</strong> Diseño elegante y funcional, perfecta para el uso diario.</p>
+        <a href="{{ url_for('formulario', modelo='Cartera Clásica') }}" 
+           class="copy-btn">
+           Personalizar Cartera Clásica
+        </a>
+    </div>
+</div>
+
+<div class="modelo-container">
+    <img src="{{ url_for('static', filename='modelo2.jpg') }}" 
+         alt="Modelo 2: Cartera Urbana" 
+         class="modelo-img" 
+         onerror="this.style.display='none'">
+    <div class="modelo-info">
+        <h2>Modelo 2: Cartera Urbana</h2>
+        <p><strong>Medidas:</strong> 26cm (ancho) x 22cm (alto) x 10cm (profundidad)</p>
+        <p><strong>Características:</strong> Diseño moderno y compacto, ideal para la vida urbana.</p>
+        <a href="{{ url_for('formulario', modelo='Cartera Urbana') }}" 
+           class="copy-btn">
+           Personalizar Cartera Urbana
+        </a>
+    </div>
+</div>
+{% endblock %}

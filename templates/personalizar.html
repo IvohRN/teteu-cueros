@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Personalizar {{ modelo }} - Teteu Cueros{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <img id="carteraImg" 
+         src="{{ imagen }}" 
+         alt="{{ modelo }}" 
+         class="modelo-img">
+    <h2>Personaliza tu {{ modelo }}</h2>
+    
+    <form id="personalizarForm" method="POST">
+        <div class="selector-row">
+            <div class="selector-col">
+                <label for="colorSelect">Color:</label>
+                <select name="color" id="colorSelect" required>
+                    <option value="">Selecciona un color</option>
+                    <option value="negro">Negro</option>
+                    <option value="marron">Marrón</option>
+                    <option value="marron claro">Marrón Claro</option>
+                </select>
+                <img id="colorPreview" 
+                     class="color-preview" 
+                     src="{{ url_for('static', filename='colors1.png') }}" 
+                     alt="Vista previa del color">
+            </div>
+            
+            <div class="selector-col">
+                <label for="herrajesSelect">Herrajes:</label>
+                <select name="herrajes" id="herrajesSelect" required>
+                    <option value="">Selecciona herrajes</option>
+                    <option value="plata">Plata</option>
+                    <option value="dorado">Dorado</option>
+                </select>
+                <img id="herrajesPreview" 
+                     class="herrajes-preview" 
+                     src="{{ url_for('static', filename='h1.png') }}" 
+                     alt="Vista previa de herrajes">
+            </div>
+        </div>
+        
+        <button type="submit" class="copy-btn">
+            Generar Enlace Personalizado
+        </button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Configuración específica para esta página
+document.addEventListener('DOMContentLoaded', function() {
+    // Establecer imagen base según el modelo
+    const modelo = '{{ modelo }}'.toLowerCase();
+    const imagenBase = modelo.includes('urbana') ? 'modelo2' : 'modelo1';
+    document.getElementById('carteraImg').src = `/static/${imagenBase}.jpg`;
+});
+</script>
+{% endblock %}
